@@ -1,63 +1,91 @@
+# Project README
 
-## Setup
-Install uv
+## Prerequisites
+
+Make sure you have `uv` installed.
+
+### Install `uv`
+
+**Linux, macOS, Windows (WSL):**
+
 ```bash
-# Linux, macOS, Windows (WSL)
 curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
+**Windows (PowerShell):**
 
-# Windows (Powershell)
+```powershell
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Run:
-```bash
-uv venv  # create .venv/
+---
 
-uv sync
+## Setup
+
+Create a virtual environment and synchronize dependencies:
+
+```bash
+uv venv      # creates .venv/
+uv sync      # syncs dependencies
 ```
 
-## run migration
+---
 
+## Database Migrations
 
-### generate migrations
+### Generate a new migration
+
 ```bash
-uv run alembic revision --autogenerate -m "add your message here"
+uv run alembic revision --autogenerate -m "describe your changes here"
 ```
 
-### appling migration
+### Apply migrations
+
 ```bash
 uv run alembic upgrade head
 ```
 
+---
 
-## Running Aplication
+## Running the Application
 
-Run:
+Start the app locally with:
+
 ```bash
 uv run uvicorn app.main:app --reload --port 5555
 ```
 
-## Running tests
+- The app will be accessible at `http://localhost:5555\`.
+- Documentation at `http://localhost:5555\docs`.
+
+---
+
+## Testing
 
 Run the full test suite with coverage:
 
 ```bash
- uv run pytest --cov=app -vv
+uv run pytest --cov=app -vv
 ```
 
-## lint
-```bash
-uv run ruff check . && ruff check . --diff
-```
+Generate an HTML coverage report:
 
-## format
-```bash
-uv run ruff check . --fix && ruff format .
-```
-
-
-## generate coverage report in HTML
 ```bash
 uv run coverage html
+```
+
+---
+
+## Linting and Formatting
+
+Check for linting issues:
+
+```bash
+uv run ruff check . && uv run ruff check . --diff
+```
+
+Auto-format and fix issues:
+
+```bash
+uv run ruff check . --fix && uv run ruff format .
 ```

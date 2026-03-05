@@ -109,3 +109,15 @@ uv run ruff check . --fix && uv run ruff format .
   - added test coverage over 80%
   - added layer of separation of concerns (repositories and services)
   - added ruff as a linter and formatter helpping the code quality
+
+- **Improvements**:
+  - Technical:
+    - Add Docker support
+    - Move from SQLite to another database (SQL or No-SQL)
+    - Integrate pre-commit hooks to run Ruff and Pytest on every commit
+    - Set up GitHub Actions to prevent merging branches without passing Ruff and Pytest checks
+
+  - Features:
+    - Add multiplayer mode
+    - Implement authentication to maintain rankings and enable player comparisons
+    - Introduce new game modes, such as Ultimate Tic-Tac-Toe
